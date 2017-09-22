@@ -23,7 +23,7 @@ class Root extends React.Component {
 
   getChildContext() {
     return {
-      stripes: { locale: 'EN'}
+      stripes: { locale: 'EN' },
     };
   }
 
