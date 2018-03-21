@@ -1,0 +1,98 @@
+.PQRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+
+  &.alignBottom {
+    align-items: flex-end;
+  }
+
+  &.alignTop {
+    align-items: flex-start;
+  }
+
+  &.justifyStart {
+    justify-content: flex-start;
+  }
+
+  &.justifyEnd {
+    justify-content: flex-end;
+  }
+}
+
+.PQCell {
+  display: flex;
+
+  &.selfAlignEnd {
+    align-items: flex-end;
+  }
+
+  &.selfAlignStart {
+    align-items: flex-start;
+  }
+
+  &.w1 {
+    width: 6.25%;
+  }
+
+  &.w2 {
+    width: calc(2 * 6.25%);
+  }
+
+  &.w3 {
+    width: calc(3 * 6.25%);
+  }
+
+  &.w4 {
+    width: calc(4 * 6.25%);
+  }
+
+  &.w5{
+    width: calc(5 * 6.25%);
+  }
+
+  &.w6 {
+    width: calc(6 * 6.25%);
+  }
+
+  &.w7 {
+    width: calc(7 * 6.25%);
+  }
+
+  &.w8 {
+    width: calc(8 * 6.25%);
+  }
+
+  &.w9 {
+    width: calc(9 * 6.25%);
+  }
+
+  &.w10 {
+    width: calc(10 * 6.25%);
+  }
+
+  &.w11 {
+    width: calc(11 * 6.25%);
+  }
+
+  &.w12 {
+    width: calc(12 * 6.25%);
+  }
+
+  &.w13 {
+    width: calc(13 * 6.25%);
+  }
+
+  &.w14 {
+    width: calc(14 * 6.25%);
+  }
+
+  &.w15 {
+    width: calc(15 * 6.25%);
+  }
+
+  &.w16 {
+    width: 100%;
+  }
+}
