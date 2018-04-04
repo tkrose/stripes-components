@@ -1,0 +1,30 @@
+@import "../variables.css";
+
+.PositionerParent {
+  position: relative;
+  pointer-events: none;
+}
+
+.PositionerTargetInline {
+  position: static;
+  display: inline-block;
+}
+
+.PositionerOverlay {
+  position: absolute;
+  pointer-events: all;
+}
+
+/* Transition */
+.transition {
+  opacity: 0;
+  transition: opacity 0.07s;
+}
+
+.transition-entering {
+  opacity: 0;
+}
+
+.transition-entered {
+  opacity: 1;
+}

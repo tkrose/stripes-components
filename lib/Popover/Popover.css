@@ -6,8 +6,6 @@
 }
 
 .popoverPop {
-  position: absolute;
-  display: inline-block;
   padding: var(--gutter);
   border: 1px solid var(--minor-divider-color rgba(0, 0, 0, 0.1));
   background-color: #fff;
@@ -24,18 +22,4 @@
 /* No padding on content */
 .popoverPop.noPadding {
   padding: 0;
-}
-
-/* Transition */
-.transition {
-  opacity: 0;
-  transition: opacity 0.07s;
-}
-
-.transition-entering {
-  opacity: 0;
-}
-
-.transition-entered {
-  opacity: 1;
 }
