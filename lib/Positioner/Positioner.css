@@ -1,8 +1,19 @@
 @import "../variables.css";
 
+.localOverlayContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 .PositionerParent {
   position: relative;
   pointer-events: none;
+}
+
+.PositionerTarget {
+  position: relative;
+  display: block;
 }
 
 .PositionerTargetInline {
