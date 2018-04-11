@@ -14,7 +14,7 @@
   display: inline-block;
 }
 
-.DropdownMenuTether {
+.DropdownMenuBody {
   z-index: 1000;
   display: none;
   float: left;
@@ -39,13 +39,13 @@
 }
 
 @media (--mediumUp) {
-  .DropdownMenuTether {
+  .DropdownMenuBody {
     min-width: 40vw;
   }
 }
 
 @media (--largeUp) {
-  .DropdownMenuTether {
+  .DropdownMenuBody {
     min-width: 20vw;
   }
 }
