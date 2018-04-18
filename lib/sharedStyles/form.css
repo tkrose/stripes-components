@@ -114,7 +114,7 @@ input.input {
  */
 select.input {
   height: var(--controlHeightSmall);
-  padding: 0 var(--input-vertical-padding);
+  padding: 0 20px 0 var(--input-vertical-padding);
   appearance: none;
 }
 
