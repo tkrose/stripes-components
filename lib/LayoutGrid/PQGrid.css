@@ -3,7 +3,9 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-
+  width: 100%;
+  max-width: 100%;
+  
   &.alignBottom {
     align-items: flex-end;
   }
@@ -19,17 +21,38 @@
   &.justifyEnd {
     justify-content: flex-end;
   }
+
+  &.padded {
+    & > .PQCell {
+      padding: 0 .3rem;
+
+      &.collapse {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    
+      &.collapseEnd {
+        padding-right: 0;
+      }
+    
+      &.collapseStart {
+        padding-left: 0;
+      }
+    }
+  }
 }
+
 
 .PQCell {
   display: flex;
+  will-change: transform;
 
-  &.selfAlignEnd {
-    align-items: flex-end;
+  &.alignSelfEnd {
+    align-self: flex-end;
   }
 
-  &.selfAlignStart {
-    align-items: flex-start;
+  &.alignSelfStart {
+    align-self: flex-start;
   }
 
   &.w1 {
