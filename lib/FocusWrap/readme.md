@@ -52,3 +52,38 @@ Name | type | description | default | required
 `focusName` | string | If this string matches the string passed down from `<FocusWrapProvider>`, focus will transition to the child. | |
 `focusRefGetter` | function | returns a ref to receive focus. Optional parameter. If none is provided, `<FocusWrap>` will focus the first focusable element it renders. | |
 `shouldFocus` | bool | If true, the wrapped will be focused on mount. This can be made to look at query strings, state, or other criteria for determining whether or not it will need to be focused. | | 
+
+## Targeting focus with a ref.
+In scenarios where the first focusable element isn't what needs to receive immediate focus, you can control where it goes via a ref to the focusable element.
+
+```
+// within the Route's rendered component tree.....
+<Reused>
+  <FocusWrap focusName="searchSecondControl" focusRefGetter={() => this.secondControl}>
+    <SearchField refToSecondThing={(ref) => {this.secondControl = ref;}} />
+  </FocusWrap>
+</Reused>
+```
+
+## Controlling focus via a boolean
+Sometimes context won't exactly tell you where you need to focus and you may have to derive a boolean from a number of criteria within the current worflow of your application. This is where the `shouldFocus` prop comes in. This should be used sparingly - only in instances where matching of the `focusName` prop is inadequate.
+
+```
+// within the Route's rendered component tree.....
+focusWhenNew() {
+  return firstTime && queryParam('new');
+}
+
+focusHeading() {
+  return !queryParam('new');
+}
+
+<Reused>
+  <FocusWrap shouldFocus={this.focusWhenNew}>
+    <NewFeaturesList />
+  </FocusWrap>
+  <FocusWrap shouldFocus={this.focusHeading}>
+    <Header />
+  </FocusWrap>
+</Reused>
+```
