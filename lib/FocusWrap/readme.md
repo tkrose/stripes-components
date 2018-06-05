@@ -2,24 +2,24 @@
 Focus-routing to help make Single-Page React Applications (SPRA's) accessible through focus-management! Since SPRA's update the page without refreshing the entire page, it's important to move focus in response to these changes so that users of assistive technology can receive the context necessary for navigation actions that just took place. Imagine if all you had available to tell you the status of what was displayed within a webpage was the element that's in focus and the text it contains, its labels, its attributes - that's reality for a screen reader! So a change in navigation warrants a change in focus.
 
 ## What we're trying to solve...
-`AutoFocus` is a nice thing that, when used tactically, can provide the just the focus transition that you need. It will cause a control to be focused right as the component mounts... the downside to this, you may not always want this behavior - say I have a container component (`<Reused>`) that gets re-used between different routes - one of which presents a deeper level of workflow than the other... 
+`AutoFocus` is a nice thing that, when used tactically, can provide the just the focus transition that you need. It will cause a control to be focused right as the component mounts... the downside to this, you may not always want this behavior - say I have a container component (`<ReusedLayout>`) that gets re-used between different routes - one of which presents a deeper level of workflow than the other... 
 ```
 <Route path="/1">
-  <Reused />
+  <ReusedLayout />
 </Route1>
 <Route path="/2">
-  <Reused />
+  <ReusedLayout />
   <ContextuallyImportant>
 </Route2>
 ```
-If `<Reused>` is relying on `AutoFocus`, bad things could happen. It will want to gain focus every mount. There will be a race condition for its `AutoFocus`ed controls and those that `<ContextuallyImportant>` may contain. `AutoFocus` could leave users of assitive techology lost if it's used improperly.
+If `<ReusedLayout>` is relying on `AutoFocus`, bad things could happen. It will want to gain focus every mount. There will be a race condition for its `AutoFocus`ed controls and those that `<ContextuallyImportant>` may contain. `AutoFocus` could leave users of assitive techology lost if it's used improperly.
 
 ## Basic Usage
 Managing focus among the components of the SPRA involves a combination of two components - `<FocusWrap>` and `<FocusWrapProvider>`. `<FocusWrapProvider>` sets a string through its `value` prop... this value is passed down through the React component tree. When a nested `<FocusWrap>` component mounts, it reads that passed value, compares it with its own `focusName` prop, and if they match, `<FocusWrap>` focuses the first focusable element within its child tree.
 
 ```
 // Parent component, where routing is set up...
-
+import { FocusWrapProvider } from '@folio/stripes-components/lib/FocusWrap';
 
 <Route path="/search">
   <FocusWrapProvider value="search">
@@ -34,15 +34,17 @@ Managing focus among the components of the SPRA involves a combination of two co
 ``` 
 
 ```
-// within views.....
-<Reused>
+// within views rendered by routes.....
+import { FocusWrap } from '@folio/stripes-components/lib/FocusWrap';
+
+<ReusedLayout>
   <FocusWrap focusName="search">
     <SearchField />
   </FocusWrap>
   <FocusWrap focusName="account">
     <FoundThing>
   </FocusWrap>
-</Reused>
+</ReusedLayout>
 ```
 
 ## Props
