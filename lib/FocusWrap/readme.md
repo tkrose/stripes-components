@@ -1,4 +1,4 @@
-# <FocusWrap>
+# `<FocusWrap>`
 Focus-routing to help make Single-Page React Applications (SPRA's) accessible through focus-management! Since SPRA's update the page without refreshing the entire page, it's important to move focus in response to these changes so that users of assistive technology can receive the context necessary for navigation actions that just took place. Imagine if all you had available to tell you the status of what was displayed within a webpage was the element that's in focus and the text it contains, its labels, its attributes - that's reality for a screen reader! So a change in navigation warrants a change in focus.
 
 ## What we're trying to solve...
